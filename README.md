@@ -1,2 +1,0 @@
-# mindspherehealth.github.io
-Nona

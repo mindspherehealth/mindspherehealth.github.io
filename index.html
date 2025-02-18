@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSphere - Mental Wellbeing Platform</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Homepage Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: #e76f51;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        /* Chat Interface */
+        .chat-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .message {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: #a8dadc;
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background: #f0f0f0;
+        }
+
+        /* Product Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem 5%;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* Minecraft Server Page */
+        .server-info {
+            text-align: center;
+            padding: 4rem 5%;
+            background: #f4f4f4;
+        }
+
+        .server-address {
+            font-size: 2rem;
+            color: #2a9d8f;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .mod-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .mod-item {
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            padding: 4rem 0;
+        }
+
+        .active-section {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MindSphere</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#chat">Chat</a>
+            <a href="#shop">Shop</a>
+            <a href="#server">Server Info</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="page-section active-section">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Welcome to MindSphere</h1>
+                <p>AI-powered consultations and expert therapist support in one place.</p>
+                <button class="cta-button">Start Your Journey</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat" class="page-section">
+        <div class="chat-container">
+            <div class="message user-message">
+                <p>I'm feeling a bit anxious.</p>
+            </div>
+            <div class="message ai-message">
+                <p>I understand how you feel. Let's work through it together. Would you like some breathing exercises?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="page-section">
+        <div class="shop-grid">
+            <div class="product-card">
+                <div class="product-image"></div>
+                <h3>Fidget Cube</h3>
+                <p>¥150</p>
+            </div>
+            <!-- Add more product cards -->
+        </div>
+    </section>
+
+    <!-- Server Info Section -->
+    <section id="server" class="page-section">
+        <div class="server-info">
+            <h2>Minecraft Server</h2>
+            <div class="server-address">play.mindsphere.com</div>
+            <p>Join our supportive community experience</p>
+            
+            <div class="mod-grid">
+                <div class="mod-item">Mod 1: [Icon]</div>
+                <div class="mod-item">Mod 2: [Icon]</div>
+                <div class="mod-item">Mod 3: [Icon]</div>
+                <div class="mod-item">Mod 4: [Icon]</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>Contact: support@mindsphere.com</div>
+            <div>© 2023 MindSphere</div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navigation handling
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                document.querySelectorAll('.page-section').forEach(section => {
+                    section.classList.remove('active-section');
+                });
+                document.getElementById(targetId).classList.add('active-section');
+            });
+        });
+    </script>
+</body>
+</html>
