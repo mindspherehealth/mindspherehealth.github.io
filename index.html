@@ -462,14 +462,8 @@
     </section>
 
     <script>
-        // Add smooth scrolling to new messages
-        function scrollToBottom() {
-            const chatContainer = document.querySelector('.chat-container');
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
 
-        // Initial scroll to bottom
-        setTimeout(scrollToBottom, 500);
+
 
         // Simple input animation
         document.querySelector('.chat-input').addEventListener('focus', function() {
@@ -499,13 +493,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                navigateToSection(targetId);
-            });
-        });
 
         // Chat message animations
         document.querySelectorAll('.message').forEach((message, index) => {
