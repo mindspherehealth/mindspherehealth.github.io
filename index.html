@@ -301,6 +301,46 @@
                 transform: translateY(0);
             }
         }
+/* Chat Input */
+        .chat-input-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            max-width: 90%;
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            resize: none;
+        }
+
+        /* Icon Frames */
+        .icon-frame {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            border: 3px solid var(--primary-color);
+            padding: 5px;
+            background: white;
+            margin-right: 1rem;
+        }
+
+        .icon-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body>
@@ -329,31 +369,42 @@
     <section id="chat" class="page-section">
         <div class="chat-container">
             <div class="message user-message">
-                <p>I'm feeling a bit anxious.</p>
+                <p>I’ve been feeling really overwhelmed lately. It’s hard to get out of bed some mornings, and I don’t know what to do.</p>
             </div>
             <div class="message ai-message">
-                <p>I understand how you feel. Let's work through it together. Would you like some breathing exercises?</p>
+                <p>I’m really sorry to hear you’re feeling this way. It’s okay to have moments when everything feels too much. You're not alone, and I’m here to support you. Would you like to talk a little more about what’s been overwhelming you lately?</p>
             </div>
-        </div>
-        <div class="chat-container">
             <div class="message user-message">
-                <p>Fuck you.</p>
+                <p>It’s just… everything at once. Work, family, personal stuff. I feel like I’m constantly trying to juggle too many things, and I’m afraid I’m failing at it all.</p>
             </div>
             <div class="message ai-message">
-                <p>I understand how you feel. Let's work through it together. Why are you gay?</p>
+                <p>It sounds like you're carrying a lot of weight on your shoulders right now. Juggling multiple responsibilities can be exhausting, and it's completely normal to feel like you’re not managing it all. Let’s take a moment to pause together. Can we break down the most pressing issue first? Maybe identifying one thing at a time will make things feel more manageable. What’s been most stressful for you recently?</p>
             </div>
-        </div>
-        <div class="chat-container">
             <div class="message user-message">
-                <p>Time doesnt exist.</p>
+                <p>I think it’s work. I’m behind on a few projects, and I feel like my boss is getting frustrated with me. I’m afraid of losing my job.</p>
             </div>
             <div class="message ai-message">
-                <p>You're right.</p>
+                <p>That sounds really tough, especially with the added pressure of worrying about your job. Feeling like you're falling behind can trigger a lot of anxiety. Let’s work through this step by step. First, have you had a chance to communicate with your boss about your workload? Sometimes opening up a dialogue can reduce that pressure. And remember, it’s okay to ask for help or delegate where possible.</p>
+            </div>
+            <div class="message user-message">
+                <p>I haven’t said anything. I’m afraid it will make me look weak or incapable.</p>
+            </div>
+            <div class="message ai-message">
+                <p>I understand that fear. But asking for support when you need it doesn’t make you weak—it shows that you’re aware of your limits and that you’re committed to delivering quality work. Many people, including bosses, value honesty and proactive communication. Would you like me to help you prepare a message to your boss about your workload?</p>
+            </div>
+            <div class="message user-message">
+                <p>That might be helpful. I’m just not sure what to say.</p>
+            </div>
+            <div class="message ai-message">
+                <p>Let’s keep it simple and direct. Here’s a template you could use...</p>
             </div>
         </div>
-
+        
+        <!-- Chat Input -->
+        <div class="chat-input-container">
+            <textarea class="chat-input" placeholder="Type your message here..."></textarea>
+        </div>
     </section>
-
     <!-- Shop Section -->
     <section id="shop" class="page-section">
         <div class="shop-grid">
@@ -371,8 +422,10 @@
             </div>
         </div>
     </section>
-
-    <!-- Server Info Section -->
+        <div class="chat-input-container">
+            <textarea class="chat-input" placeholder="Type your message here..."></textarea>
+        </div>
+    <!-- Minecraft Server Section -->
     <section id="server" class="page-section">
         <div class="server-info">
             <h2>Minecraft Server</h2>
@@ -380,13 +433,53 @@
             <p>Join our supportive community experience</p>
             
             <div class="mod-grid">
-                <div class="mod-item">Mod 1: [Icon]</div>
-                <div class="mod-item">Mod 2: [Icon]</div>
-                <div class="mod-item">Mod 3: [Icon]</div>
-                <div class="mod-item">Mod 4: [Icon]</div>
+                <div class="mod-item">
+                    <div class="icon-frame">
+                        <img src="1.png" alt="Mod 1">
+                    </div>
+                    <span>Dynamic Surroundings</span>
+                </div>
+                <div class="mod-item">
+                    <div class="icon-frame">
+                        <img src="2.png" alt="Mod 2">
+                    </div>
+                    <span>Journeymap</span>
+                </div>
+                <div class="mod-item">
+                    <div class="icon-frame">
+                        <img src="4.png" alt="Mod 3">
+                    </div>
+                    <span>Custom NPCs</span>
+                </div>
+                <div class="mod-item">
+                    <div class="icon-frame">
+                        <img src="3.png" alt="Mod 4">
+                    </div>
+                    <span>OF</span>
+                </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // Add smooth scrolling to new messages
+        function scrollToBottom() {
+            const chatContainer = document.querySelector('.chat-container');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Initial scroll to bottom
+        setTimeout(scrollToBottom, 500);
+
+        // Simple input animation
+        document.querySelector('.chat-input').addEventListener('focus', function() {
+            this.parentElement.style.transform = 'translateX(-50%) scale(1.02)';
+        });
+
+        document.querySelector('.chat-input').addEventListener('blur', function() {
+            this.parentElement.style.transform = 'translateX(-50%) scale(1)';
+        });
+    </script>
 
     <footer>
         <div class="footer-content">
