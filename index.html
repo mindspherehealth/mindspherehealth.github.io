@@ -301,7 +301,8 @@
                 transform: translateY(0);
             }
         }
-/* Chat Input */
+
+        /* Chat Input */
         .chat-input-container {
             position: fixed;
             bottom: 20px;
@@ -347,10 +348,10 @@
     <nav class="navbar">
         <div class="logo">MindSphere</div>
         <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#chat">Chat</a>
-            <a href="#shop">Shop</a>
-            <a href="#server">Server Info</a>
+            <a href="#home" onclick="navigateToSection('home')">Home</a>
+            <a href="#chat" onclick="navigateToSection('chat')">Chat</a>
+            <a href="#shop" onclick="navigateToSection('shop')">Shop</a>
+            <a href="#server" onclick="navigateToSection('server')">Server Info</a>
         </div>
     </nav>
 
@@ -405,6 +406,7 @@
             <textarea class="chat-input" placeholder="Type your message here..."></textarea>
         </div>
     </section>
+
     <!-- Shop Section -->
     <section id="shop" class="page-section">
         <div class="shop-grid">
@@ -416,15 +418,12 @@
             <!-- Add more product cards -->
             <div class="product-card">
                 <div class="product-image"><img src="jewish.png" alt="Jewish An"></div>
-                
                 <h3>Jewish An</h3>
                 <p>¥0.5</p>
             </div>
         </div>
     </section>
-        <div class="chat-input-container">
-            <textarea class="chat-input" placeholder="Try it yourself..."></textarea>
-        </div>
+
     <!-- Minecraft Server Section -->
     <section id="server" class="page-section">
         <div class="server-info">
@@ -461,20 +460,6 @@
         </div>
     </section>
 
-    <script>
-
-
-
-        // Simple input animation
-        document.querySelector('.chat-input').addEventListener('focus', function() {
-            this.parentElement.style.transform = 'translateX(-50%) scale(1.02)';
-        });
-
-        document.querySelector('.chat-input').addEventListener('blur', function() {
-            this.parentElement.style.transform = 'translateX(-50%) scale(1)';
-        });
-    </script>
-
     <footer>
         <div class="footer-content">
             <div>Contact: support@mindsphere.com</div>
@@ -493,7 +478,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-
         // Chat message animations
         document.querySelectorAll('.message').forEach((message, index) => {
             message.style.animationDelay = `${index * 0.2}s`;
@@ -501,15 +485,26 @@
 
         // Scroll reveal animations
         window.addEventListener('scroll', () => {
-            document.querySelectorAll('.page-section:not(.active-section)').forEach(section => {
+            document.querySelectorAll('.page-section').forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 const scrollPosition = window.pageYOffset;
                 
-                if (scrollPosition > sectionTop - window.innerHeight + 100) {
+                if (scrollPosition > sectionTop - window.innerHeight + 100 && scrollPosition < sectionTop + sectionHeight) {
                     section.classList.add('active-section');
+                } else {
+                    section.classList.remove('active-section');
                 }
             });
+        });
+
+        // Simple input animation
+        document.querySelector('.chat-input').addEventListener('focus', function() {
+            this.parentElement.style.transform = 'translateX(-50%) scale(1.02)';
+        });
+
+        document.querySelector('.chat-input').addEventListener('blur', function() {
+            this.parentElement.style.transform = 'translateX(-50%) scale(1)';
         });
     </script>
 </body>
