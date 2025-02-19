@@ -182,7 +182,7 @@
         /* Product Grid */
         .shop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2.5rem;
             padding: 4rem 5%;
         }
@@ -203,12 +203,18 @@
         }
 
         .product-image {
-            height: 250px;
-            background: #ddd;
+            width: 100%;
+            height: auto;
             border-radius: 10px;
             margin-bottom: 1.5rem;
             overflow: hidden;
             position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .product-image::after {
@@ -411,15 +417,33 @@
     <section id="shop" class="page-section">
         <div class="shop-grid">
             <div class="product-card">
-                <div class="product-image"><img src="fidget.png" alt="Fidget Cube"></div>
+                <div class="product-image">
+                    <img src="fidget.png" alt="Fidget Cube">
+                </div>
                 <h3>Fidget Cube</h3>
                 <p>¥150</p>
             </div>
             <!-- Add more product cards -->
             <div class="product-card">
-                <div class="product-image"><img src="jewish.png" alt="Jewish An"></div>
-                <h3>Jewish An</h3>
-                <p>¥0.5</p>
+                <div class="product-image">
+                    <img src="h.jpg" alt="Puzzles">
+                </div>
+                <h3>Puzzles</h3>
+                <p>¥50</p>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="p.jpg" alt="Puffy Dolls">
+                </div>
+                <h3>Puffy Dolls</h3>
+                <p>¥30</p>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="a.jpg" alt="Aromatherapy">
+                </div>
+                <h3>Aromatherapy</h3>
+                <p>¥100</p>
             </div>
         </div>
     </section>
